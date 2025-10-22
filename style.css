@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+:root {
+    --bg: #0d0d0d;
+    --panel: #151515;
+    --primary: #00ffe0;
+    --accent: #ff00c8;
+    --text: #e0e0e0;
+    --completed: #555;
+    --glow: 0 0 12px var(--primary);
+}
+
+/* === Light Theme === */
+body[data-theme="light"] {
+    --bg: #f7f7f7;
+    --panel: #ffffff;
+    --primary: #222;
+    --accent: #007bff;
+    --text: #111;
+    --completed: #888;
+    --glow: none;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at top, #0a0a0a, var(--bg));
+    color: var(--text);
+    margin: 0;
+    padding: 2rem;
+    transition: background 0.4s ease, color 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--glow);
+    border: 1px solid var(--accent);
+}
+
+h1 {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    letter-spacing: 2px;
+}
+
+form {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+input,
+select,
+button {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--accent);
+}
+
+select:hover,
+input:hover,
+button:hover {
+    box-shadow: 0 0 8px var(--accent);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+}
+
+li {
+    background: var(--panel);
+    margin-bottom: 0.6rem;
+    padding: 0.9rem;
+    border-left: 5px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--completed);
+    opacity: 0.7;
+}
+
+.task-text {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1rem;
+    width: 60%;
+    font-family: 'Orbitron', sans-serif;
+    transition: border-bottom 0.3s ease;
+}
+
+.task-text:not(:disabled) {
+    border-bottom: 1px solid var(--accent);
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: #000;
+    font-weight: bold;
+    border: none;
+    margin-left: 0.25rem;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    transform: scale(1.05);
+}
+
+/* === Category Colors === */
+li[data-category="School"] {
+    border-left-color: #00bfff;
+}
+
+li[data-category="Home"] {
+    border-left-color: #ff9900;
+}
+
+li[data-category="Work"] {
+    border-left-color: #ff00c8;
+}
+
+li[data-category="Store"] {
+    border-left-color: #00ff66;
+}
+
+/* === Small Touch: Category Tag === */
+li span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-left: 0.5rem;
+}
